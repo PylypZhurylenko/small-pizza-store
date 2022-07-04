@@ -1,0 +1,23 @@
+[33mcommit 73311692896769ae1346724f39c8863164841f33[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: PylypZhurylenko <pylypzhurylenko@gmail.com>
+Date:   Mon Jul 4 21:03:49 2022 +0200
+
+    some
+
+[33mcommit 15044a4a9916ae6578ed07a1e2380d303a9fbabf[m
+Author: PylypZhurylenko <asakevych@gmail.com>
+Date:   Mon Jul 4 20:58:45 2022 +0200
+
+    changes
+
+[33mcommit 7665c28de954b2e9afc55fce00b7213d332ab76d[m
+Author: Anastsia Sakevych <asakevych@gmail.com>
+Date:   Mon Jul 4 20:37:07 2022 +0200
+
+    done
+
+[33mcommit 6bef3db63f183487a26a562034fab4c06c00c4f8[m
+Author: Anastsia Sakevych <asakevych@gmail.com>
+Date:   Mon Jun 6 18:06:42 2022 +0200
+
+    Initialize project using Create React App
