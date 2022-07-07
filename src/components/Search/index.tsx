@@ -17,12 +17,15 @@ export const Search: React.FC = () => {
   };
   //useCallback was
   //const handler = useCallback(debounce(() => setSearchQuery(value), 500), []);
-  const updateSearchValue = React.useCallback(
-    debounce((str: string) => {
-      dispatch(setSearchValue(str));
-    }, 150),
-    [dispatch]
-  );
+  // const updateSearchValue = React.useCallback(
+  //   debounce((str: string) => {
+  //     dispatch(setSearchValue(str));
+  //   }, 150),
+  //   []
+  // );
+  const updateSearchValue = debounce((str: string) => {
+    dispatch(setSearchValue(str));
+  }, 150);
 
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
