@@ -44,25 +44,26 @@ const Home: React.FC = () => {
     dispatch(setCurrentPage(page));
   };
 
+  const getPizzas = async () => {
+    const sortBy = sort.sortProperty.replace("-", "");
+    const order = sort.sortProperty.includes("-") ? "asc" : "desc";
+    const category = categoryId > 0 ? String(categoryId) : "";
+    const search = searchValue;
+
+    dispatch(
+      fetchPizzas({
+        sortBy,
+        order,
+        category,
+        search,
+        currentPage: String(currentPage),
+      })
+    );
+
+    window.scrollTo(0, 0);
+  };
+
   React.useEffect(() => {
-    const getPizzas = async () => {
-      const sortBy = sort.sortProperty.replace("-", "");
-      const order = sort.sortProperty.includes("-") ? "asc" : "desc";
-      const category = categoryId > 0 ? String(categoryId) : "";
-      const search = searchValue;
-
-      dispatch(
-        fetchPizzas({
-          sortBy,
-          order,
-          category,
-          search,
-          currentPage: String(currentPage),
-        })
-      );
-
-      window.scrollTo(0, 0);
-    };
     getPizzas();
   }, [categoryId, sort.sortProperty, searchValue, currentPage, dispatch]);
 
