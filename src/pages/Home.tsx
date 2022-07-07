@@ -1,7 +1,7 @@
 import React from "react";
 // import qs from "qs";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import {
   Categories,
@@ -33,34 +33,36 @@ const Home: React.FC = () => {
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
 
-  const onChangeCategory = React.useCallback((idx: number) => {
-    dispatch(setCategoryId(idx));
-  }, []);
+  const onChangeCategory = React.useCallback(
+    () => (idx: number) => {
+      dispatch(setCategoryId(idx));
+    },
+    []
+  );
 
   const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page));
   };
 
-  const getPizzas = async () => {
-    const sortBy = sort.sortProperty.replace("-", "");
-    const order = sort.sortProperty.includes("-") ? "asc" : "desc";
-    const category = categoryId > 0 ? String(categoryId) : "";
-    const search = searchValue;
-
-    dispatch(
-      fetchPizzas({
-        sortBy,
-        order,
-        category,
-        search,
-        currentPage: String(currentPage),
-      })
-    );
-
-    window.scrollTo(0, 0);
-  };
-
   React.useEffect(() => {
+    const getPizzas = async () => {
+      const sortBy = sort.sortProperty.replace("-", "");
+      const order = sort.sortProperty.includes("-") ? "asc" : "desc";
+      const category = categoryId > 0 ? String(categoryId) : "";
+      const search = searchValue;
+
+      dispatch(
+        fetchPizzas({
+          sortBy,
+          order,
+          category,
+          search,
+          currentPage: String(currentPage),
+        })
+      );
+
+      window.scrollTo(0, 0);
+    };
     getPizzas();
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
