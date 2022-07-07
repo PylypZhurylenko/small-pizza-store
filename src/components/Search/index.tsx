@@ -20,7 +20,7 @@ export const Search: React.FC = () => {
     debounce((str: string) => {
       dispatch(setSearchValue(str));
     }, 150),
-    []
+    [] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
