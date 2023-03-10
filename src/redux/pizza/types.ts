@@ -1,6 +1,7 @@
 export type Pizza = {
   id: string;
   title: string;
+  category: string;
   price: number;
   imageUrl: string;
   sizes: number[];
@@ -9,9 +10,9 @@ export type Pizza = {
 };
 
 export enum Status {
-  LOADING = 'loading',
-  SUCCESS = 'completed',
-  ERROR = 'error',
+  LOADING = "loading",
+  SUCCESS = "completed",
+  ERROR = "error",
 }
 
 export type SearchPizzaParams = {
